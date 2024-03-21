@@ -38,7 +38,7 @@ pipeline {
             }
     	}
 	   
-	stage('Kubernetes Deployment of KebBuggy Web Application') {
+	stage('Kubernetes Deployment of ASG Bugg Web Application') {
 	   steps {
 	      withKubeConfig([credentialsId: 'kubelogin']) {
 		  sh('kubectl delete all --all -n devsecops')
@@ -49,7 +49,7 @@ pipeline {
 	   
 	stage ('wait_for_testing'){
 	   steps {
-		   sh 'pwd; sleep 180; echo "Application Has been deployed on K8S"'
+		   sh 'pwd; sleep 360; echo "Application Has been deployed on K8S"'
 	   	}
 	   }
 	   
